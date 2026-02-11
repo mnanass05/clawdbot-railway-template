@@ -1,0 +1,12 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+startCommand = "node src/server.js"
+healthcheckPath = "/health"
+restartPolicyType = "ON_FAILURE"
+numReplicas = 1
+
+[deploy.env]
+NODE_ENV = "production"
+PORT = "8080"

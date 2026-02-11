@@ -1,0 +1,56 @@
+{
+  "name": "openclaw-saas",
+  "version": "1.0.0",
+  "description": "Multi-tenant OpenClaw SaaS platform",
+  "main": "src/server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed.js",
+    "create:admin": "node scripts/create-admin.js",
+    "setup": "node scripts/setup.js",
+    "test": "jest",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "joi": "^17.11.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.3",
+    "pg": "^8.11.3",
+    "socket.io": "^4.7.4",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0",
+    "ws": "^8.16.0",
+    "openclaw": "2026.2.9"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [
+    "openclaw",
+    "moltbot",
+    "saas",
+    "ai",
+    "telegram",
+    "discord",
+    "slack"
+  ],
+  "author": "",
+  "license": "MIT"
+}

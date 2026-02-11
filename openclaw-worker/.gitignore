@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+logs/
+
+# Environment
+.env
+.env.local
+
+# Data (should be persisted via Railway volume)
+data/*.db
+data/*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,12 @@
+[build]
+builder = "DOCKERFILE"
+
+[deploy]
+startCommand = "npm start"
+healthcheckPath = "/health"
+restartPolicyType = "ON_FAILURE"
+
+# Volume persistant CRITIQUE pour la mémoire SQLite d'OpenClaw
+[[mounts]]
+source = "openclaw_data"
+destination = "/app/data"

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - OpenClaw SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>body { font-family: 'Inter', sans-serif; }</style>
+</head>
+<body class="bg-gray-900 text-white">
+    <nav class="border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl font-bold text-red-500">OpenClaw Admin</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/dashboard" class="text-gray-400 hover:text-white">Dashboard</a>
+                    <button onclick="logout()" class="text-gray-400 hover:text-white">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 class="text-2xl font-bold mb-6">Admin Panel</h1>
+        
+        <div class="bg-gray-800 rounded-lg p-8 text-center">
+            <p class="text-gray-400">Admin features coming in Phase 4...</p>
+            <p class="text-sm text-gray-500 mt-2">For now, manage users directly in the database.</p>
+        </div>
+    </div>
+
+    <script>
+        async function logout() {
+            await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
+            window.location.href = '/';
+        }
+        
+        // Check admin access
+        fetch('/api/auth/me', { credentials: 'same-origin' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.user?.email !== 'admin@openclaw.dev') {
+                    window.location.href = '/dashboard';
+                }
+            })
+            .catch(() => window.location.href = '/');
+    </script>
+</body>
+</html>
